@@ -31,7 +31,7 @@ async function generateVanityMintSigner(targetPrefix, endpoint, numWorkers) {
         console.log(`Starting parallel search for vanity token mint with prefix "${targetPrefix}" using ${numWorkers} workers...`);
 
         for (let i = 0; i < numWorkers; i++) {
-            const worker = new Worker('./pages/vanityWorker.js', {
+            const worker = new Worker('./lib/vanityWorker.js', {
                 workerData: { endpoint, targetPrefix } // Pass data directly
             });
             workers.push(worker);
